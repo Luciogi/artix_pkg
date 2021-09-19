@@ -17,17 +17,17 @@ conflicts=('anbox-launchers')
 makedepends=('cmake' 'git' 'glm' 'boost' 'properties-cpp' 'gtest' 'python' 'dbus')
 source=("git+https://github.com/anbox/anbox.git"
 	"git+https://github.com/google/cpu_features.git"
-	"https://git.alpinelinux.org/aports/plain/community/anbox/anbox-container-manager.initd"
-	"no-bundled-sdbus.patch"
+	'anbox-container.initd'
+	'no-bundled-sdbus.patch'
 	'anbox-desktop-dir.patch'
 	'lxc.patch'
 	'99-anbox.rules'
 	'anbox.conf'
 	'anbox.desktop'
-	'anbox-session-manager.initd')
+	'anbox-session.initd')
 sha256sums=('SKIP'
             'SKIP'
-            '22818da270ee7bdfc4074f4f1cecfd2947408914a3c3b249958f41c4580cbfda'
+            '725ab29807f72b99bff82d1aa6269093de8320c3ce8778e88f880ba02380ddc4'
             '7c0626afaf1ce004ac2c57cd89db393f9a6ba21f1087001d15278a7bd79c8219'
             'd1e2e3fa1299b423f1d98cbd3c591d853f1ce8646f508ef838fe714f986fc5b2'
             '9212f8b941d62b50b9188aea6218ceb6f6b77761a388f9868b1071557a95e067'
@@ -74,8 +74,8 @@ build() {
 package() {
   make -C build DESTDIR="$pkgdir" install
 
-  install -Dm 755  "$srcdir/anbox-container-manager.initd" "$pkgdir/etc/init.d/anbox-container-manager"
-  install -Dm 755  "$srcdir/anbox-session-manager.initd" "$pkgdir/etc/init.d/anbox-session-manager"
+  install -Dm 755  "$srcdir/anbox-container.initd" "$pkgdir/etc/init.d/anbox-container"
+  install -Dm 755  "$srcdir/anbox-session.initd" "$pkgdir/etc/init.d/anbox-session"
   install -Dm 755  "$srcdir/anbox/scripts/anbox-bridge.sh" "$pkgdir/usr/share/anbox/anbox-bridge.sh"
   install -Dm 755  "$srcdir/anbox/scripts/anbox-shell.sh" "$pkgdir/usr/share/anbox/anbox-shell.sh"
   install -Dm 644 -t "$pkgdir/usr/lib/udev/rules.d"   99-anbox.rules
