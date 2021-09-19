@@ -1,0 +1,13 @@
+post_install() {
+    rc-update add whoogle
+    rc-service whoogle start
+    echo ""
+    echo "Enabled the Whoogle openrc service."
+    echo "Visit localhost:5000 to start searching!"
+    echo ""
+}
+
+post_upgrade() {
+    rc-service whoogle restart
+    echo "Restarted Whoogle systemd service."
+}

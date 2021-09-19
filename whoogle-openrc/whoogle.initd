@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+
+name=$RC_SVCNAME
+description="Whoogle"
+supervisor="supervise-daemon"
+command="/opt/whoogle-search/venv/bin/python3"
+command_args="-um app --host 0.0.0.0 --port 5000"
+supervise_daemon_args=" -d /opt/whoogle-search"
+command_user="root"
+
+depend() {
+	after network-online
+	use network-online
+}
+
+reload() {
+	ebegin "Reloading $RC_SVCNAME"
+	/bin/kill -HUP $MAINPID
+	eend $?
+}

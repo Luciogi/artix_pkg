@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+
+command="/opt/Mullvad\ VPN/resources/mullvad-daemon"
+command_args="--disable-stdout-timestamps"
+pidfile="/var/run/mullvadvpn.pid"
+command_background=true
+
+name="mullvad-daemon"
+description="Mullvad VPN daemon"

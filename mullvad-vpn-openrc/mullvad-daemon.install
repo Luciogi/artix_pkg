@@ -1,0 +1,12 @@
+post_install() {
+	echo " ==> Add the mullvad vpn daemon to system startup wtih 'rc-update add mullvad-daemon default'"
+	echo " ==> Start the mullvad vpn daemon now with 'rc-service mullvad-daemon start'"
+}
+
+post_upgrade() {
+	post_install "$1"
+}
+
+pre_remove() {
+	echo " ==> Make sure you run 'rc-update del mullvad-daemon default'"
+}
