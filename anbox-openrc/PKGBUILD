@@ -23,7 +23,8 @@ source=("git+https://github.com/anbox/anbox.git"
 	'lxc.patch'
 	'99-anbox.rules'
 	'anbox.conf'
-	'anbox.desktop')
+	'anbox.desktop'
+	'anbox-session-manager.initd')
 sha256sums=('SKIP'
             'SKIP'
             '22818da270ee7bdfc4074f4f1cecfd2947408914a3c3b249958f41c4580cbfda'
@@ -32,7 +33,8 @@ sha256sums=('SKIP'
             '9212f8b941d62b50b9188aea6218ceb6f6b77761a388f9868b1071557a95e067'
             '210eb93342228168f7bb632c8b93d9bfda6f53f62459a6b74987fa1e17530475'
             '3e07dc524a827c1651857cce28a06c1565bc5188101c140ed213bbafedc5abff'
-            '7332d09865be553a259a53819cebddd21f661c7a251d78c2f46acd75c66676b6')
+            '7332d09865be553a259a53819cebddd21f661c7a251d78c2f46acd75c66676b6'
+            '6cf72bd362fe0b058b4fdff2a1347eac3cc87ccefca53d9e20a22e7296ffcae4')
 
 pkgver() {
   cd "${pkgname%*-git}"
@@ -73,6 +75,7 @@ package() {
   make -C build DESTDIR="$pkgdir" install
 
   install -Dm 755  "$srcdir/anbox-container-manager.initd" "$pkgdir/etc/init.d/anbox-container-manager"
+  install -Dm 755  "$srcdir/anbox-session-manager.initd" "$pkgdir/etc/init.d/anbox-session-manager"
   install -Dm 755  "$srcdir/anbox/scripts/anbox-bridge.sh" "$pkgdir/usr/share/anbox/anbox-bridge.sh"
   install -Dm 755  "$srcdir/anbox/scripts/anbox-shell.sh" "$pkgdir/usr/share/anbox/anbox-shell.sh"
   install -Dm 644 -t "$pkgdir/usr/lib/udev/rules.d"   99-anbox.rules
