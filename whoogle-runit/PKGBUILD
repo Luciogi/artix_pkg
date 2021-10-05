@@ -1,0 +1,16 @@
+pkgname=whoogle-runit
+pkgver=1.0
+pkgrel=1
+pkgdesc="Runit service script for whoogle"
+arch=('any')
+url=''
+license=('GPL v3')
+depends=('whoogle' 'runit')
+conflicts=('init-whoogle')
+provides=('init-whoogle')
+source=("whoogle.run")
+sha256sums=(""4cc951a966b187dc69fd0f7483b160a01e546b1956fa52db7ee99fec971c5799)
+package() {
+    install -Dm 755 $srcdir/whoogle.run $pkgdir/etc/runit/sv/whoogle/run
+}
+

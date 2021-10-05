@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /opt/whoogle-search/
+exec /opt/whoogle-search/venv/bin/python3 -um app --host 0.0.0.0 --port 5000
