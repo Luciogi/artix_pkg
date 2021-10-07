@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if ip link show anbox0 >/dev/null 2>&1; then
+    echo "anbox0 network interface already exists"
+else
+    echo "Creating anbox0 network interface"
+    /usr/share/anbox/anbox-bridge.sh start
+fi
+exec 2>&1
+exec /usr/bin/anbox container-manager --daemon --privileged --data-path=/var/lib/anbox --android-image=/var/lib/anbox/android.img

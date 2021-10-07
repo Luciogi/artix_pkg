@@ -1,0 +1,40 @@
+_sed_args=(-e 's|/var/run|/run|g' -e 's|/usr/sbin|/usr/bin|g' -e 's|/opt/bin|/usr/bin|g' -e 's|/var/service|/run/runit/service|g' -e 's|/usr/libexec|/usr/lib|g')
+pkgname=anbox-runit
+pkgver=1
+pkgrel=1
+arch=('x86_64')
+conflicts=('init-anbox')
+provides=('init-anbox')
+pkgdesc="runit service script for Anbox"
+depends=('runit' 'anbox-nosystemd-git')
+source=('anbox-container-manager.run'
+        'anbox-container-manager.finish')
+sha256sums=('26187f315b97abfe1eea8111975243887bbd5f491a9df614d216ff05d08dba8f'
+            '819e341ef38fd4dd4bda3d2bb876bb0e5e26fb2484922d054a4475065dd0deac')
+
+
+_inst_logsv() {
+    for file in run finish check; do
+        if test -f "$srcdir/log$1.$file"; then
+            install -Dm755 "$srcdir/log$1.$file" "$pkgdir/etc/runit/sv/$1/log/$file"
+            sed "${_sed_args[@]}" -i "$pkgdir/etc/runit/sv/$1/log/$file"
+        fi
+    done
+}
+
+_inst_sv() {
+    if test -f "$srcdir/$1.conf"; then
+        install -Dm644 "$srcdir/$1.conf" "$pkgdir/etc/runit/sv/$1/conf"
+    fi
+
+    for file in run finish check; do
+        if test -f "$srcdir/$1.$file"; then
+            install -Dm755 "$srcdir/$1.$file" "$pkgdir/etc/runit/sv/$1/$file"
+            sed "${_sed_args[@]}" -i "$pkgdir/etc/runit/sv/$1/$file"
+        fi
+    done
+}
+
+package() {
+    _inst_sv 'anbox-container-manager'
+}

@@ -1,0 +1,17 @@
+pkgname=anbox-runit
+pkgver=1
+pkgrel=1
+arch=('x86_64')
+pkgdesc="Runit script for Anbox"
+depends=('runit' 'anbox-nosystemd-git')
+source=('anbox-container-manager.run'
+        'anbox-container-manager.finish'
+        'anbox-session-manager.run')
+sha256sums=('26187f315b97abfe1eea8111975243887bbd5f491a9df614d216ff05d08dba8f'
+            '819e341ef38fd4dd4bda3d2bb876bb0e5e26fb2484922d054a4475065dd0deac'
+            '9447915c93d3aa1d19f26cfb58bad88830eb79c337a65edb355874178d8c68fb')
+package() {
+  install -Dm 755 $srcdir/anbox-container-manager.run $pkgdir/etc/runit/sv/anbox-container-manager/run
+  install -Dm 755 $srcdir/anbox-container-manager.finish $pkgdir/etc/runit/sv/anbox-container-manager/finish
+  install -Dm 755 $srcdir/anbox-session-manager.run $pkgdir/etc/runit/sv/anbox-session-manager/run
+}
