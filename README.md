@@ -1,13 +1,3 @@
-# atrix_pkg
+# artix_pkg
 
-anbox-nosystemd-git
-
-anbox-runit
-
-mullvad-vpn-openrc
-
-whoogle-openrc
-
-whoogle-runit
-
-
+All PKGBUILD files in this repository are licensed under the unlicense.
