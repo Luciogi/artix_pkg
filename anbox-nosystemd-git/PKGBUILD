@@ -20,7 +20,7 @@ source=("git+https://github.com/anbox/anbox.git"
 	'lxc.patch::https://gitlab.alpinelinux.org/alpine/aports/-/raw/fc60972afd4ff0c096498e28557b9a16e801aa7f/community/anbox/lxc4.patch'
 	'sdbus.patch::https://gitlab.alpinelinux.org/alpine/aports/-/raw/fc60972afd4ff0c096498e28557b9a16e801aa7f/community/anbox/no-bundled-sdbus.patch'
 	'delayed-start.patch::https://gitlab.alpinelinux.org/alpine/aports/-/raw/70a1a8afb7b6ac37291d382e6e5cc7561fc88626/community/anbox/give-more-time-to-start.patch'
-	'dbus-launch.patch::https://github.com/anbox/anbox/pull/1918.patch'
+	'dbus-launch.patch::https://patch-diff.githubusercontent.com/raw/anbox/anbox/pull/1918.patch'
 	'desktop-dir.patch'
 	#'anbox-container-manager.service'
 	#'anbox-session-manager.service'
