@@ -7,7 +7,6 @@ pkgname=anbox-nosystemd-git
 pkgver=r1358.84f0268
 pkgrel=1
 pkgrel=7
->>>>>>> b6fde18 (version matched with AUR pkg)
 epoch=1
 arch=('x86_64')
 url="http://anbox.io/"
@@ -74,9 +73,6 @@ prepare() {
   for each in lxc sdbus delayed-start desktop-dir;do
     patch -p1 < "$srcdir/$each.patch"
   done
-#   sed -i '1i\#include <cstdint>' "$srcdir/anbox/src/anbox/input/manager.cpp"
->>>>>>> b6fde18 (version matched with AUR pkg)
-
   # Thanks to @bartus <arch-user-repo@bartus.33mail.com> for suggesting the patch
   # checking before applying it.
   # Original patch: http://ix.io/3Clr
