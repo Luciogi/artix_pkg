@@ -65,14 +65,11 @@ pkgver() {
 
 prepare() {
   cd "${pkgname%*-nosystemd-git}"
-
+  
   # Don't build tests
   truncate -s 0 cmake/FindGMock.cmake
   truncate -s 0 tests/CMakeLists.txt
-  sed -i '1i\#include <cstdint>' "$srcdir/anbox/src/anbox/input/manager.cpp"
-  for each in lxc sdbus delayed-start desktop-dir;do
-    patch -p1 < "$srcdir/$each.patch"
-  done
+  
   # Thanks to @bartus <arch-user-repo@bartus.33mail.com> for suggesting the patch
   # checking before applying it.
   # Original patch: http://ix.io/3Clr
@@ -115,6 +112,5 @@ package() {
 
   install -Dm 755  "$srcdir/anbox/scripts/anbox-bridge.sh"  "$pkgdir/usr/share/anbox/anbox-bridge.sh"
   install -Dm 755  "$srcdir/anbox/scripts/anbox-shell.sh"   "$pkgdir/usr/share/anbox/anbox-shell.sh"
-
 }
 
