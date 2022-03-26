@@ -1,0 +1,3 @@
+type            = process
+command         = /etc/dinit.d/scripts/whoogle
+logfile        = /var/log/dinit/whoogle.log

@@ -1,0 +1,20 @@
+pkgname=whoogle-dinit
+pkgver=1.0
+pkgrel=1
+pkgdesc="Dinit service script for whoogle"
+arch=('any')
+url=''
+license=('GPL v3')
+depends=('whoogle' 'dinit')
+conflicts=('init-whoogle')
+provides=('init-whoogle')
+source=("whoogle" "whoogle.script" "whoogle.install")
+sha256sums=('652870a5415e39d4222a7d3e488f7eb781e541fe1c90b68d568d27c44124aa8b'
+            'd3ff574bc79b24e83ba4df08ef5a6430e5b0b6093350d64d815f83ad2d3a96da'
+            '428a48839d3d3fc47cbf4cca9e57421786faa4139b2cc85b877c8ad281765d6d')
+
+install=whoogle.install
+package() {
+    install -Dm 755 $srcdir/whoogle $pkgdir/etc/dinit.d/whoogle
+    install -Dm 755 $srcdir/whoogle.script $pkgdir/etc/dinit.d/scripts/whoogle
+}

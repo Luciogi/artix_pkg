@@ -1,0 +1,6 @@
+#!/bin/sh
+[ -r /etc/dinit.d/config/whoogle.conf ] && . /etc/dinit.d/config/whoogle.conf
+export ADDRESS="$BIND_ADDRESS"
+export PORT="$LISTEN_PORT"
+cd /opt/whoogle-search/
+exec /opt/whoogle-search/venv/bin/python3 -um app --host $ADDRESS --port $PORT

@@ -1,0 +1,4 @@
+post_install() {
+    echo "Creating symbolic link for whoogle config"
+    ln -s /etc/default/whoogle /etc/dinit.d/config/whoogle.conf
+}
