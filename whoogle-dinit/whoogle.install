@@ -2,3 +2,7 @@ post_install() {
     echo "Creating symbolic link for whoogle config"
     ln -s /etc/default/whoogle /etc/dinit.d/config/whoogle.conf
 }
+post_remove() {
+    echo "Removing symbolic link for whoogle config"
+    unlink /etc/dinit.d/config/whoogle.conf
+}

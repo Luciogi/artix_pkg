@@ -10,8 +10,8 @@ conflicts=('init-whoogle')
 provides=('init-whoogle')
 source=("whoogle" "whoogle.script" "whoogle.install")
 sha256sums=('652870a5415e39d4222a7d3e488f7eb781e541fe1c90b68d568d27c44124aa8b'
-            'd3ff574bc79b24e83ba4df08ef5a6430e5b0b6093350d64d815f83ad2d3a96da'
-            '428a48839d3d3fc47cbf4cca9e57421786faa4139b2cc85b877c8ad281765d6d')
+            '3adb29cd0aac39cd8a352199f8dd0ac652794c011dabe26116734f69d7f8c0ae'
+            '1e5ad93ae075d3edd4797bfab31c63150450f270fb12aaf2ce4150b44ad61ad3')
 
 install=whoogle.install
 package() {
