@@ -15,6 +15,6 @@ sha256sums=('652870a5415e39d4222a7d3e488f7eb781e541fe1c90b68d568d27c44124aa8b'
 
 install=whoogle.install
 package() {
-    install -Dm 755 $srcdir/whoogle $pkgdir/etc/dinit.d/whoogle
+    install -Dm 644 $srcdir/whoogle $pkgdir/etc/dinit.d/whoogle
     install -Dm 755 $srcdir/whoogle.script $pkgdir/etc/dinit.d/scripts/whoogle
 }
