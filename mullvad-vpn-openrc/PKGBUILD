@@ -9,8 +9,8 @@ depends=('mullvad-vpn-bin' 'openrc')
 optdepends=('wireguard-tools: necessary for wireguard support')
 source=("mullvad-daemon.initd")
 sha256sums=("ee41a9590699527958c9e08d3e9347e17b0614fa0f26fc3f7a907e7e4055e159")
-
+install=mullvad-daemon.install
 package() {
   install -Dm755 ${srcdir}/mullvad-daemon.initd "$pkgdir"/etc/init.d/mullvad-daemon
-  install=mullvad-daemon.install
+
 }
