@@ -8,8 +8,8 @@ license=('GPL v3')
 depends=('whoogle' 'openrc')
 source=("whoogle.install"
         "whoogle.initd")
-sha256sums=("a828bd4e221eb51a2fb38e36068cdf5cb71ca236907692bcf6dafa6169a6ef15"
-           "4ea07f9ce25ebd745c171f308c63d9bd23cb3ab56e83d7e3c82a7131647db4e5")
+sha256sums=('929ad84a274bf5aa7e0b1b6b71c9889e9e1795a9e2471190eb3bb2bb49e7adf6'
+            '4ea07f9ce25ebd745c171f308c63d9bd23cb3ab56e83d7e3c82a7131647db4e5')
 install=whoogle.install
 package() {
   install -Dm755 ${srcdir}/whoogle.initd "$pkgdir"/etc/init.d/whoogle
