@@ -5,13 +5,13 @@ pkgdesc="OpenRC service script for whoogle"
 arch=('any')
 url=''
 license=('GPL v3')
-depends=('whoogle-git' 'openrc')
+depends=('whoogle' 'openrc')
 source=("whoogle.install"
         "whoogle.initd")
 sha256sums=("a828bd4e221eb51a2fb38e36068cdf5cb71ca236907692bcf6dafa6169a6ef15"
            "4ea07f9ce25ebd745c171f308c63d9bd23cb3ab56e83d7e3c82a7131647db4e5")
+install=whoogle.install
 package() {
   install -Dm755 ${srcdir}/whoogle.initd "$pkgdir"/etc/init.d/whoogle
-  install=whoogle.install
-}
 
+}

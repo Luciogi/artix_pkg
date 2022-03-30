@@ -1,4 +1,6 @@
 post_install() {
+    echo "Creating config symbolic link"
+    ln -s /etc/default/whoogle /etc/conf.d/whoogle
     rc-update add whoogle
     rc-service whoogle start
     echo ""
@@ -8,6 +10,13 @@ post_install() {
 }
 
 post_upgrade() {
+    unlink /etc/conf.d/whoogle
+    ln -s /etc/default/whoogle /etc/conf.d/whoogle
     rc-service whoogle restart
     echo "Restarted Whoogle systemd service."
+}
+
+post_remove() {
+    echo "Removing config symbolic link"
+    unlink /etc/conf.d/whoogle
 }
