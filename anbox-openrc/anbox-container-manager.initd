@@ -5,7 +5,7 @@ supervisor=supervise-daemon
 name="Anbox container manager"
 command=/usr/bin/anbox
 # command_args="container-manager --daemon --privileged --data-path=/var/lib/anbox --android-image=/var/lib/anbox/android.img"
-command_args="container-manager --daemon --privileged --data-path=/var/lib/anbox --container-network-gateway=192.168.250.1 --container-network-address=192.168.250.2"
+command_args="container-manager --privileged --data-path=/var/lib/anbox --container-network-gateway=192.168.250.1 --container-network-address=192.168.250.2"
 
 depend() {
 	need localmount sysfs cgroups fuse
