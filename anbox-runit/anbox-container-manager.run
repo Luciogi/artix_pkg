@@ -7,4 +7,5 @@ else
     /usr/share/anbox/anbox-bridge.sh start
 fi
 exec 2>&1
-exec /usr/bin/anbox container-manager --daemon --privileged --data-path=/var/lib/anbox --android-image=/var/lib/anbox/android.img
+# exec /usr/bin/anbox container-manager --daemon --privileged --data-path=/var/lib/anbox --android-image=/var/lib/anbox/android.img
+exec /usr/bin/anbox container-manager --privileged --data-path=/var/lib/anbox --container-network-gateway=192.168.250.1 --container-network-address=192.168.250.2
