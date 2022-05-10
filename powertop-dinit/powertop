@@ -1,0 +1,5 @@
+type = scripted
+command = /usr/bin/powertop --auto-tune
+run-as = root
+waits-for = loginready
+logfile = /var/log/dinit/powertop.log

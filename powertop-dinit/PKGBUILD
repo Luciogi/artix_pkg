@@ -1,0 +1,16 @@
+pkgname=powertop-dinit
+pkgver=1.0
+pkgrel=1
+pkgdesc="Dinit service script for Powertop"
+arch=('any')
+url=''
+license=('GPL v3')
+depends=('powertop' 'dinit')
+conflicts=('init-powertop')
+provides=('init-powertop')
+source=("powertop")
+sha256sums=('SKIP')
+
+package() {
+    install -Dm 644 $srcdir/powertop $pkgdir/etc/dinit.d/powertop
+}
