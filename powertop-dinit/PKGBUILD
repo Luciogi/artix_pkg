@@ -9,7 +9,7 @@ depends=('powertop' 'dinit')
 conflicts=('init-powertop')
 provides=('init-powertop')
 source=("powertop")
-sha256sums=('SKIP')
+sha256sums=('ed0aa81d685bd0b4e33d69932b820123954e4c18f467e62742f65a6ff3d00652')
 
 package() {
     install -Dm 644 $srcdir/powertop $pkgdir/etc/dinit.d/powertop
