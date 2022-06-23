@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+	modprobe loop
+	modprobe tun
+
+	if ip link show anbox0 >/dev/null 2>&1; then
+		echo "anbox0 network interface already exists"
+	else
+		echo "Creating anbox0 network interface"
+		/usr/share/anbox/anbox-bridge.sh start
+		echo $?
+	fi

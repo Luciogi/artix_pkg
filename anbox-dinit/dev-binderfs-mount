@@ -1,0 +1,4 @@
+type = scripted
+command = mount -t binder binder /dev/binderfs -o nofail
+stop-command = umount /dev/binderfs
+restart = false

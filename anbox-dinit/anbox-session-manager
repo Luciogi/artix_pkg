@@ -1,0 +1,4 @@
+# Note: No longer needed, don't use this!
+
+type		= process
+command		= /usr/bin/anbox session-manager

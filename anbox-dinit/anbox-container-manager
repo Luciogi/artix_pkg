@@ -1,0 +1,15 @@
+# Note: the "fuse-dinit" package for ArtixLinux is required! If you installed this with original PKGBUILD, Ignore this note.
+# Note: the "lxc" package is required! If you installed this with original PKGBUILD, Ignore this note.
+
+type            = process
+command         = /usr/bin/anbox container-manager --daemon --privileged --data-path=/var/lib/anbox --container-network-gateway=192.168.250.1 --container-network-address=192.168.250.2
+#command        = /usr/bin/anbox container-manager --daemon --privileged --data-path=/var/lib/anbox --android-image=/var/lib/anbox/android.img
+logfile         = /var/log/dinit/anbox-container-manager.log
+depends-on      = mount
+depends-on      = sysusers
+depends-on      = cgroups
+depends-on      = fuse
+depends-on      = net-lo
+depends-on      = dev-binderfs-mount
+depends-on	= anbox-container-manager-pre
+waits-for       = network

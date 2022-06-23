@@ -1,0 +1,30 @@
+# Maintainer: Mobin Aydinfar <mobin at mobintestserver dot ir>
+
+pkgname=anbox-dinit
+pkgver=1
+pkgrel=3
+arch=(any)
+pkgdesc="Dinit service scripts for Anbox"
+depends=('dinit' 'anbox-nosystemd-git' 'fuse-dinit')
+source=('anbox-container-manager'
+        'anbox-container-manager-pre'
+        'anbox-container-manager_start'
+        'anbox-container-manager_stop'
+        'dev-binderfs-mount'
+        #'anbox-session-manager'
+        )
+sha256sums=('3cf528d2660c1046fedd7a489a625ddb4874255fe118a2a6da28885edf12d241'
+            '4857754a6579f9a1a4d8587e3bab6b04cfcafd5486dcf159462211f1f494227d'
+            '73c8d27e910a610078d689e6f9c261207652ae39682348b0f33c1c957273eef9'
+            'd7aa40dd5a7ad03148f9b92e0f1622496a4bf124584ef13ad39646566bddef40'
+            '6c98aeae104f4c74e4ff2bd41cf7e59492b6ffedd9b10542c3759612d4d4db01'
+            #'83b1566d0e2fdbe864cc606c7e2d9411768c29cc7ad01eb5302b280105007071')
+            )
+package() {
+  install -Dm 644  "$srcdir/anbox-container-manager"  "$pkgdir/etc/dinit.d/anbox-container-manager"
+  install -Dm 644  "$srcdir/anbox-container-manager-pre"  "$pkgdir/etc/dinit.d/anbox-container-manager-pre"
+  install -Dm 744  "$srcdir/anbox-container-manager_start"  "$pkgdir/etc/dinit.d/anbox.d/anbox-container-manager_start"
+  install -Dm 744  "$srcdir/anbox-container-manager_stop"  "$pkgdir/etc/dinit.d/anbox.d/anbox-container-manager_stop"
+  install -Dm 644  "$srcdir/dev-binderfs-mount"  "$pkgdir/etc/dinit.d/dev-binderfs-mount"
+#  install -Dm 644  "$srcdir/anbox-session-manager"    "$pkgdir/etc/dinit.d/anbox-session-manager"
+}
