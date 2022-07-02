@@ -1,3 +1,4 @@
 type            = process
 command         = /etc/dinit.d/scripts/whoogle
-logfile        = /var/log/dinit/whoogle.log
+waits-for       = network
+logfile          = /var/log/dinit/whoogle.log
