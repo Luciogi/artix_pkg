@@ -8,7 +8,7 @@ depends=('openrc' 'anbox-nosystemd-git' 'fuse-openrc')
 source=('anbox-container-manager.initd'
         'https://git.alpinelinux.org/aports/plain/community/anbox/anbox.confd'
         'anbox-session-manager.initd')
-sha256sums=('22818da270ee7bdfc4074f4f1cecfd2947408914a3c3b249958f41c4580cbfda'
+sha256sums=('5e539d8d25dc9490594b3466723c70ede8f4fd79e9e7933018a9bb0700c65039'
             '53f69caa3f039d4582c28a4418625657e05ca970fbd76b2afeb72949c6b09643'
             '6cf72bd362fe0b058b4fdff2a1347eac3cc87ccefca53d9e20a22e7296ffcae4')
 package() {
