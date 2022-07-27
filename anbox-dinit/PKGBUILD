@@ -2,7 +2,7 @@
 
 pkgname=anbox-dinit
 pkgver=1
-pkgrel=3
+pkgrel=4
 arch=(any)
 pkgdesc="Dinit service scripts for Anbox"
 depends=('dinit' 'anbox-nosystemd-git' 'fuse-dinit')
