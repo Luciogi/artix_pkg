@@ -2,4 +2,3 @@ type		= scripted
 command		= /usr/bin/sh anbox-container-manager_start
 stop-command	= /usr/bin/sh anbox-container-manager_stop
 working-dir	= /etc/dinit.d/anbox.d/
-waits-for	= network

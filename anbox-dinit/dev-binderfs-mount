@@ -1,4 +1,5 @@
-type = scripted
-command = mount -t binder binder /dev/binderfs -o nofail
-stop-command = umount /dev/binderfs
-restart = false
+type		= scripted
+command		= /usr/bin/mount -t binder binder /dev/binderfs -o nofail
+stop-command	= /usr/bin/umount /dev/binderfs
+restart		= false
+waits-for	= mount
