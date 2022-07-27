@@ -12,4 +12,4 @@ depends-on      = fuse
 depends-on      = net-lo
 depends-on      = dev-binderfs-mount
 depends-on	= anbox-container-manager-pre
-waits-for       = network
+waits-for	= loginready
