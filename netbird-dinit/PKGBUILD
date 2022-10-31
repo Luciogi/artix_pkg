@@ -1,0 +1,18 @@
+# Maintainer: Luciogi
+pkgname=netbird-dinit
+pkgver=1
+pkgrel=1
+pkgdesc="Netbird init service for dinit"
+arch=('any')
+depends=('dinit' 'netbird')
+provides=('init-netbird')
+conflicts=('init-netbird')
+source=('netbird'
+        'netbird.sh')
+sha256sums=('8c4790ef4fedee4a5acb3841a918fe4ac1b54709efcf6e2bde3e4e7516ae1891'
+            '509960ecc93011bd0d0c6928318f51e7312010be37cc3971270b1aea08f542a9')
+install=netbird.install
+package(){
+    install -Dm 644 $srcdir/netbird $pkgdir/etc/dinit.d/netbird
+    install -Dm 755 $srcdir/netbird.sh $pkgdir/etc/dinit.d/scripts/netbird
+}

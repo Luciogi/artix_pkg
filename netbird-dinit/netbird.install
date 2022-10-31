@@ -1,0 +1,11 @@
+post_install(){
+  echo "==> Starting service"
+  dinitctl start netbird
+  echo "==> Run command to connect to netbird account (Run one time)"
+  echo "    netbird up"
+}
+post_remove(){
+  echo "Disabling and removing service"
+  dinitctl disable netbird
+  dinitctl stop netbird
+}

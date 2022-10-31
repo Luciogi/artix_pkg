@@ -1,0 +1,5 @@
+type = process
+command = /etc/dinit.d/scripts/netbird
+smooth-recovery = true
+depends-on = network
+waits-for = loginready
